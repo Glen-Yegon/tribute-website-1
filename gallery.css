@@ -1,0 +1,340 @@
+/* =========================
+   ROOT & GLOBAL
+========================= */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gold: #dc9750;
+  --gold-soft: #dc9750;
+  --dark-overlay: rgba(0, 0, 0, 0.55);
+  --nav-bg-scrolled: rgba(0, 0, 0, 0.7);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;           /* remove default margin */
+  padding: 0;          /* remove default padding */
+  font-family: 'Cormorant Garamond', serif;
+  color: #000;
+overflow-x: hidden; /* hide sideways scrolling only */
+overflow-y: auto;   /* allow vertical scroll */
+
+}
+#main-content {
+  overflow: visible;
+}
+
+/* Optional: prevent accidental overflow inside main containers */
+* {
+  box-sizing: border-box;
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 6px;          /* thin scrollbar */
+    background: transparent; /* transparent background */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dc9750; /* your color */
+    border-radius: 10px;       /* rounded edges */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* transparent track */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;        /* makes scrollbar thin */
+    scrollbar-color: #dc9750 transparent; /* thumb color then track color */
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--nav-bg-scrolled);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: var(--nav-bg-scrolled);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+.nav-spacer {
+  /* keeps title centered */
+}
+
+.nav-hamburger {
+  justify-self: end;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  display: block;
+}
+
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* glassy effect */
+  background: rgba(0,0,0,0.75); /* translucent dark */
+  display: none; /* hidden by default */
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.mobile-menu-content {
+  width: 90%;
+  max-width: 400px;
+  background: rgba(10,10,10,0.95); /* slightly darker card */
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  animation: slideDown 0.5s ease forwards;
+}
+
+/* Slide-down animation */
+@keyframes slideDown {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Close Button */
+.close-mobile-menu {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+.close-mobile-menu:hover {
+  transform: rotate(90deg);
+}
+
+/* Links */
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-nav-links a {
+  text-decoration: none;
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Separator Line */
+.mobile-menu-separator {
+  width: 60%;
+  height: 2px;
+  background: var(--gold-soft);
+  border: none;
+  margin: 24px 0;
+}
+
+/* Footer Verse */
+.mobile-footer {
+  text-align: center;
+}
+
+.mobile-footer .bible-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: var(--white);
+}
+
+.mobile-footer .verse-ref {
+  display: block;
+  font-weight: 600;
+  color: var(--gold-soft);
+  margin-top: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .mobile-menu-content {
+    width: 95%;
+    padding: 20px;
+  }
+  .mobile-nav-links a {
+    font-size: 1.4rem;
+  }
+  .mobile-footer .bible-verse {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* Main Content */
+#main-content {
+  width: 100%; height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Gallery container */
+.media-gallery {
+  display: flex;
+  gap: 2px;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #dc9750;
+}
+
+/* Webkit scrollbar */
+.media-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+.media-gallery::-webkit-scrollbar-thumb {
+  background: #dc9750;
+  border-radius: 4px;
+}
+.media-gallery::-webkit-scrollbar-track {
+  background: #111;
+}
+
+/* Media items */
+.media-item {
+  flex: 0 0 auto;
+  height: 100vh; /* each item fills screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  border-radius: 0; /* clean edge-to-edge look */
+  overflow: hidden;
+}
+
+/* Images */
+.media-item img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Videos */
+.media-item video {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+
+/* Mobile: vertical stack */
+@media (max-width: 768px) {
+  .media-gallery {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 1px;
+    height: auto;
+
+    /* Firefox custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #dc9750 #111; /* pink thumb, dark track */
+  }
+
+  /* Chrome, Edge, Safari scrollbar */
+  .media-gallery::-webkit-scrollbar {
+    width: 8px; /* slightly thicker for touch */
+  }
+  .media-gallery::-webkit-scrollbar-thumb {
+    background: #dc9750; /* pink scrollbar */
+    border-radius: 4px;
+  }
+  .media-gallery::-webkit-scrollbar-track {
+    background: #111; /* dark background (instead of white/grey) */
+  }
+
+  .media-item {
+    width: 100%;
+    height: auto;
+  }
+
+  .media-item img,
+  .media-item video {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* ensures no ugly stretching */
+  }
+}
+

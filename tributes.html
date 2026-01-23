@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tributes | Emilio Kanyari Ngotho</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="tributes.css">
+</head>
+<body>
+
+  <!-- Header / Page Title -->
+  <header class="tributes-header">
+    <h1>Tributes</h1>
+    <button id="open-modal" class="tribute-btn">Submit Tribute</button>
+  </header>
+
+  <!-- Modal Form -->
+  <div id="tribute-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Submit a Tribute</h2>
+      <form id="tribute-form">
+        <label for="tribute-text">Tribute</label>
+        <textarea id="tribute-text" placeholder="Write your tribute here..." required></textarea>
+
+        <label for="tribute-from">From</label>
+        <input type="text" id="tribute-from" placeholder="Your name" required>
+
+        <label for="tribute-photo">Optional Photo</label>
+        <input type="file" id="tribute-photo" accept="image/*">
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Tributes Section -->
+  <main class="tributes-section" id="tributes-container">
+    <!-- Tribute cards will appear here dynamically -->
+  </main>
+
+    <!-- 
+<footer class="tribute-footer">
+  <div class="footer-content">
+    <p class="bible-verse">
+      “Ninduite mbara iria njega, ihenya riakwa nirikinyite muthia na ni nduritie witikio wakwa”<br>
+      <span class="verse-ref">2 Tim 4:7</span>
+    </p>
+  </div>
+  <div class="footer-bottom">
+    <hr class="footer-separator">
+<p class="copyright">© 2026 Forever in Our Hearts. All rights reserved.</p>
+
+  </div>
+</footer>
+ -->
+
+  <!-- JS -->
+ <script type="module" src="tributes.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+/* Root & Colors */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gold: #dc9750;
+  --bg-card: #1a1a1a;
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 6px;          /* thin scrollbar */
+    background: transparent; /* transparent background */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dc9750; /* your color */
+    border-radius: 10px;       /* rounded edges */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* transparent track */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;        /* makes scrollbar thin */
+    scrollbar-color: #dc9750 transparent; /* thumb color then track color */
+}
+
+
+/* Global */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  margin: 0;
+  color: var(--black);
+}
+
+h1, h2 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+.tributes-header {
+  display: flex;
+  flex-direction: column;       /* Stack elements vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  padding: 24px;
+  max-width: 600px;             /* Keep header compact */
+  margin: auto;
+  text-align: center;
+  gap: 12px;                    /* Space between title, line, and button */
+}
+
+.tributes-header h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0;
+}
+
+.header-line {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.tribute-btn {
+  padding: 12px 24px;
+  background: var(--gold);
+  border: none;
+  color: var(--black);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.tribute-btn:hover {
+  background: #b36e3a;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   MODAL
+========================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;               /* Allow scrolling if content is tall */
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  padding: 24px;                  /* Add padding for mobile */
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;                    /* Full width on smaller screens */
+  border-radius: 8px;
+  position: relative;
+  animation: fadeIn 0.5s ease;
+  box-sizing: border-box;
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--black);
+}
+
+.modal h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.modal label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.modal textarea, 
+.modal input[type="text"], 
+.modal input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  margin-top: 16px;
+  padding: 12px 24px;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  display: block;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #b36e3a;
+}
+
+/* =========================
+   RESPONSIVE ADJUSTMENTS
+========================= */
+@media (max-width: 480px) {
+  .tributes-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+  }
+}
+
+/* Tribute Cards Section */
+.tributes-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 14px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Card */
+.tribute-card {
+  background: linear-gradient(
+      145deg,
+      rgba(26, 26, 26, 0.95) 0%,   /* almost black with slight transparency */
+      rgba(44, 44, 44, 0.95) 100%  /* soft dark gray */
+    );
+  color: var(--white);
+  border-radius: 4px 12px 12px 4px; /* top-left, top-right, bottom-right, bottom-left */
+  padding: 24px;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* stronger shadow for depth */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-left: 4px solid var(--gold); /* subtle gold accent */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCard 0.6s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.tribute-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+}
+
+
+.tribute-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.tribute-card .tribute-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.tribute-card .tribute-from {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--gold);
+}
+
+.tribute-card .tribute-time {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: auto;
+}
+
+/* Animations */
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tributes-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tribute-card {
+    width: 90%;
+  }
+}
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+.tribute-footer {
+  position: relative;
+  width: 100%;
+  margin-top: 50%;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(220, 151, 80, 0.05), #0a0a0a 70%), 
+              linear-gradient(to top, #000000, #1a1a1a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px 20px 20px;
+}
+
+/* Optional subtle animated background effect */
+.tribute-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at center, rgba(220, 151, 80, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+/* Footer content (Bible verse) */
+.footer-content {
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+}
+
+.bible-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+  margin-bottom: 40px;
+}
+
+.verse-ref {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #dc9750;
+  margin-top: 10px;
+}
+
+/* Bottom copyright section */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+}
+
+.footer-separator {
+  border: none;
+  height: 1px;
+  background: #dc9750;
+  width: 490px;
+  margin: 0 auto 15px auto;
+}
+
+.footer-bottom p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: #f1f1f1;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bible-verse {
+    font-size: 1.4rem;
+  }
+
+  .verse-ref {
+    font-size: 1rem;
+  }
+}

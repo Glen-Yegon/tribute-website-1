@@ -1,0 +1,553 @@
+/* =========================
+   ROOT & GLOBAL
+========================= */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gold: #dc9750;
+  --gold-soft: #dc9750;
+  --dark-overlay: rgba(0, 0, 0, 0.55);
+  --nav-bg-scrolled: rgba(0, 0, 0, 0.7);
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 6px;          /* thin scrollbar */
+    background: transparent; /* transparent background */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dc9750; /* your color */
+    border-radius: 10px;       /* rounded edges */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* transparent track */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;        /* makes scrollbar thin */
+    scrollbar-color: #dc9750 transparent; /* thumb color then track color */
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--black);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: var(--nav-bg-scrolled);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+.nav-spacer {
+  /* keeps title centered */
+}
+
+.nav-hamburger {
+  justify-self: end;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  display: block;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url("images/100.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 110%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: heroZoomOut 1.5s ease-out forwards;
+}
+@keyframes heroZoomOut {
+  0% {
+    background-size: 110%;
+  }
+
+  60% {
+    background-size: 110%; /* hold zoom for ~2s */
+  }
+
+  100% {
+    background-size: 100%;
+  }
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.55)
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 700px;
+  color: var(--white);
+}
+
+.hero-dates {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-soft);
+  margin-bottom: 12px;
+}
+
+.hero-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 36px;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+   font-family: 'Cormorant Garamond', serif;
+   font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--black);
+  background:  var(--gold);
+  border-radius: 0px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-cta:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* full viewport height */
+    background-image: url("images/50.jpeg");
+    background-position: center; /* center the image */
+    background-repeat: no-repeat;
+    background-size: cover; /* make it cover entire hero area */
+    background-attachment: scroll; /* important: fixed breaks on mobile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: none; /* remove zoom animation for mobile */
+  }
+
+  .nav-title {
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-subtext {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+.life-section {
+  background: #ffffff;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.life-container {
+  max-width: 900px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.life-accent {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #dc9750;
+  margin: 0 auto 32px;
+  border-radius: 2px;
+}
+
+.life-container h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 100;
+  margin-bottom: 32px;
+  color: #000;
+}
+
+.life-container p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 22px;
+}
+
+.life-final {
+  font-style: italic;
+  margin-top: 30px;
+}
+
+.life-btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 14px 36px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid #dc9750;
+  color: #dc9750;
+  border-radius: 0px;
+  transition: all 0.3s ease;
+}
+
+.life-btn:hover {
+  background: #dc9750;
+  color: #ffffff;
+}
+
+
+
+/* Section setup */
+.tribute-cta {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background overlay for darkening */
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('images/52.jpeg') center/cover no-repeat fixed;
+  z-index: 1;
+  transition: background 0.5s ease;
+}
+
+/* Mobile background */
+@media (max-width: 768px) {
+  .bg-overlay {
+    background: 
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('images/48.jpeg') center/cover no-repeat fixed;
+  }
+}
+
+/* Content above overlay */
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-style: italic;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #f1f1f1;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #dc9750;
+  color: rgb(0, 0, 0);
+   font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  text-decoration: none;
+  border-radius: 0px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive typography */
+@media (max-width: 1024px) {
+  .cta-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-title {
+    font-size: 2rem;
+  }
+  .cta-subtitle {
+    font-size: 1rem;
+  }
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+
+/* Footer container */
+.tribute-footer {
+  position: relative;
+  width: 100%;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+background: radial-gradient(circle at center, rgba(220, 151, 80, 0.05), #0a0a0a 70%), 
+            linear-gradient(to top, #000000, #1a1a1a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px 20px 20px;
+}
+
+/* Optional subtle animated background effect */
+.tribute-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at center, rgba(220, 151, 80, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+/* Footer content (Bible verse) */
+.footer-content {
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+}
+
+.bible-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+  margin-bottom: 40px;
+}
+
+.verse-ref {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #dc9750;
+  margin-top: 10px;
+}
+
+/* Bottom copyright section */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+}
+
+.footer-separator {
+  border: none;
+  height: 1px;
+  background: #dc9750;
+  width: 490px;
+  margin: 0 auto 15px auto;
+}
+
+.footer-bottom p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: #f1f1f1;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bible-verse {
+    font-size: 1.4rem;
+  }
+
+  .verse-ref {
+    font-size: 1rem;
+  }
+}
+
+
+/* Loading Screen Styles */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #dc9750 0%, #b36e3a 50%, #8c531f 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+
+.loader-container {
+  text-align: center;
+}
+
+.loader-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-style: italic;
+  color: rgb(0, 0, 0);
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.percentage {  
+  font-family: 'Cormorant Garamond', serif;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+/* Blinking cursor */
+.loader-text::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* Remove blinking cursor after typing */
+.loader-text.done-typing::after {
+  content: "";
+  animation: none;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .loader-text {
+    font-size: 1.8rem; /* smaller heading */
+    letter-spacing: 1px;
+  }
+
+  .percentage {
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-text {
+    font-size: 1.4rem;
+  }
+
+  .percentage {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+}

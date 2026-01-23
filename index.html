@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In Loving Memory | Prof. Siphi la Mumenya</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link
+  href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+  rel="stylesheet"
+/>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+    <!-- Loading Screen -->
+<div id="loading-screen">
+  <div class="loader-container">
+    <h1 class="loader-text" id="loader-text">Celebrating A Life Well Lived</h1>
+    <div class="percentage" id="percentage">0%</div>
+  </div>
+</div>
+
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-spacer"></div>
+
+      <div class="nav-title">
+        Emilio Kanyari Ngotho
+      </div>
+
+        <!-- 
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    -->
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="hero-dates">1934 to 2025</p>
+        <h1 class="hero-heading">In Loving Memory</h1>
+        <p class="hero-subtext">
+          A life of wisdom, service, and lasting impact.<br />
+          Forever remembered, forever cherished.
+        </p>
+
+        <a href="tributes.html" class="hero-cta">
+          Leave a Tribute
+        </a>
+      </div>
+    </section>
+
+ <section class="life-section">
+  <div class="life-container">
+
+    <h2 data-aos="fade-up">
+      Celebration of a Life Well Lived
+    </h2>
+
+    <span
+      class="life-accent"
+      data-aos="fade-up"
+      data-aos-delay="150"
+    ></span>
+
+    <p data-aos="fade-up" data-aos-delay="250">
+      Born on <strong>29th June 1934</strong> and peacefully called to rest on
+      <strong>26th December 2025</strong>, Emilio Kanyari Ngotho lived a full and
+      remarkable life marked by faith, integrity, and unwavering devotion to
+      family and community.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="350">
+      A loving husband, father, grandfather, and great-grandfather, he was a
+      pillar of unity whose home was always open, warm, and welcoming. His life
+      exemplified generosity, discipline, humility, and a deep commitment to
+      nurturing family bonds.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="450">
+      Educated in Kenya and abroad, Emilio served with distinction in public and
+      private service for over 25 years, holding senior roles across key
+      ministries and institutions. His career reflected diligence, integrity,
+      and a lifelong dedication to national development.
+    </p>
+
+    <p data-aos="fade-up" data-aos-delay="550">
+      Rooted in the Catholic faith, he lived by prayer, service, and compassion.
+      He instilled values of honesty, hard work, and resilience, leaving behind
+      a legacy that continues to guide generations.
+    </p>
+
+    <p
+      class="life-final"
+      data-aos="fade-up"
+      data-aos-delay="650"
+    >
+      His life reminds us that a life well lived is one grounded in love, faith,
+      and service to others. Though deeply missed, his spirit lives on in the
+      hearts of all who knew and loved him.
+    </p>
+
+    <a
+      href="assets/pdf.pdf"
+      target="_blank"
+      class="life-btn"
+      data-aos="fade-up"
+      data-aos-delay="650"
+    >
+      View Full Funeral Programme (PDF)
+    </a>
+
+  </div>
+</section>
+
+<section class="tribute-cta">
+  <div class="bg-overlay"></div>
+  <div class="cta-content">
+    <h1 class="cta-title" data-aos="fade-right" data-aos-delay="650">Explore the Gallery</h1>
+    <p class="cta-subtitle" data-aos="fade-left" data-aos-delay="650">Celebrate the memories and moments captured</p>
+    <a href="gallery.html" class="cta-button" data-aos="fade-up" data-aos-delay="650">Go to Gallery</a>
+  </div>
+</section>
+
+<footer class="tribute-footer">
+  <div class="footer-content">
+    <p class="bible-verse">
+      “Ninduite mbara iria njega, ihenya riakwa nirikinyite muthia na ni nduritie witikio wakwa”<br>
+      <span class="verse-ref">2 Tim 4:7</span>
+    </p>
+  </div>
+  <div class="footer-bottom">
+    <hr class="footer-separator">
+<p class="copyright">© 2026 Forever in Our Hearts. All rights reserved.</p>
+
+  </div>
+</footer>
+
+  </main>
+
+  <script src="index.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-out-cubic',
+    once: false,
+    offset: 120
+  });
+</script>
+
+<script>
+// Check if loading screen has already been shown in this session
+if (!sessionStorage.getItem('loadingShown')) {
+
+  // Mark that we've shown it
+  sessionStorage.setItem('loadingShown', 'true');
+
+  const loaderText = document.getElementById('loader-text');
+  const percentage = document.getElementById('percentage');
+  const loadingScreen = document.getElementById('loading-screen');
+  const mainContent = document.getElementById('main-content');
+
+  const text = "Celebrating A Life Well Lived";
+  let current = "";
+  let index = 0;
+
+  // Shuffle letters effect with cursor
+  function shuffleText() {
+    if (index < text.length) {
+      current += text.charAt(index);
+      loaderText.textContent = current;
+      index++;
+      setTimeout(shuffleText, 100); // adjust typing speed
+    } else {
+      loaderText.classList.add('done-typing'); // remove cursor
+    }
+  }
+
+  shuffleText();
+
+  // Simulate loading percentage over 5 seconds
+  const totalTime = 5000; // 5 seconds
+  const intervalTime = totalTime / 100; // increment per %
+  let load = 0;
+
+  const interval = setInterval(() => {
+    load++;
+    percentage.textContent = load + "%";
+    if (load >= 100) {
+      clearInterval(interval);
+      // Fade out loader
+      loadingScreen.style.transition = "opacity 0.8s ease";
+      loadingScreen.style.opacity = 0;
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+        mainContent.style.display = "block";
+      }, 800);
+    }
+  }, intervalTime);
+
+} else {
+  // Skip loading screen entirely if already shown
+  document.getElementById('loading-screen').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+}
+</script>
+
+
+
+</body>
+</html>
