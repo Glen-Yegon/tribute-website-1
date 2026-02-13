@@ -551,3 +551,123 @@ background: radial-gradient(circle at center, rgba(220, 151, 80, 0.05), #0a0a0a 
     margin-top: 10px;
   }
 }
+
+/* ============================= */
+/* FUNERAL FAMILY TRIBUTES CTA  */
+/* ============================= */
+
+.funeral-cta {
+  position: relative;
+  padding: 100px 20px;
+  background: white;
+  color: #000000;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Soft golden glow background */
+.funeral-cta::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.funeral-cta__inner {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.funeral-cta__label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #dc9750;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.funeral-cta__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.funeral-cta__text {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #000000;
+  max-width: 680px;
+  margin: 0 auto 40px;
+}
+
+.funeral-cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background: #dc9750;
+  color: #000000;
+  transition: all 0.4s ease;
+}
+
+.funeral-cta__button:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.funeral-cta__arrow {
+  transition: transform 0.3s ease;
+}
+
+.funeral-cta__button:hover .funeral-cta__arrow {
+  transform: translateX(4px);
+}
+
+/* ============================= */
+/* RESPONSIVE                   */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .funeral-cta {
+    padding: 80px 20px;
+  }
+
+  .funeral-cta__title {
+    font-size: 2.3rem;
+  }
+
+  .funeral-cta__text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .funeral-cta {
+    padding: 70px 20px;
+  }
+
+  .funeral-cta__title {
+    font-size: 1.9rem;
+  }
+
+  .funeral-cta__button {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+  }
+}

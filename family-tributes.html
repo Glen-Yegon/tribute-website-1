@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In Loving Memory | Emilio Kanyari Ngotho</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link
+  href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+  rel="stylesheet"
+/>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="family-tributes.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-spacer"></div>
+
+      <div class="nav-title">
+        Emilio Kanyari Ngotho
+      </div>
+
+        <!-- 
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    -->
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+
+    <!-- =========================
+     HERO: FAMILY TRIBUTES
+========================== -->
+<header class="ft-hero" role="banner">
+  <div class="ft-hero__bg" aria-hidden="true"></div>
+  <div class="ft-hero__overlay" aria-hidden="true"></div>
+
+  <div class="ft-hero__inner">
+    <p class="ft-hero__eyebrow" data-aos="fade-up" data-aos-delay="650">FAMILY TRIBUTES</p>
+
+    <h1 class="ft-hero__title" data-aos="fade-right" data-aos-delay="650">
+      Words from the Funeral Program
+    </h1>
+
+<p class="ft-hero__subtitle" data-aos="fade-left" data-aos-delay="650">
+  The tributes below hold memories, gratitude, and love.
+  Scroll gently to read the messages shared in remembrance.
+</p>
+
+
+    <div class="ft-hero__actions">
+      <button class="ft-hero__scrollBtn" type="button" id="scrollToTributes" data-aos="fade-right" data-aos-delay="650">
+        Scroll to Tributes <span class="ft-hero__arrow" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- =========================
+     TRIBUTES SECTION
+========================== -->
+<section class="ft-tributes" id="tributes">
+  <div class="ft-tributes__inner">
+    <div class="ft-tributes__header">
+      <h2 class="ft-tributes__title" data-aos="fade-right" data-aos-delay="650">Family Tributes</h2>
+      <p class="ft-tributes__desc" data-aos="fade-left" data-aos-delay="650">
+        A collection of tributes shared during the service. Tap “Read full tribute” to expand.
+      </p>
+    </div>
+
+    <!-- Rendered by JS -->
+    <div class="ft-tributes__grid" id="tributesGrid"></div>
+  </div>
+</section>
+
+
+<footer class="tribute-footer">
+  <div class="footer-content">
+    <p class="bible-verse">
+      “Ninduite mbara iria njega, ihenya riakwa nirikinyite muthia na ni nduritie witikio wakwa”<br>
+      <span class="verse-ref">2 Tim 4:7</span>
+    </p>
+  </div>
+  <div class="footer-bottom">
+    <hr class="footer-separator">
+<p class="copyright">© 2026 Forever in Our Hearts. All rights reserved.</p>
+
+  </div>
+</footer>
+
+  </main>
+
+  <script src="family-tributes.js"></script>
+  <script src="index.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-out-cubic',
+    once: false,
+    offset: 120
+  });
+</script>
+
+</body>
+</html>
